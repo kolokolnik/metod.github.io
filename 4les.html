@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Последовательности в Python </title>
+	<link rel="stylesheet" href="4les.css">
+</head>
+<body>
+
+
+<div class='header'>
+	<div class="container">
+
+		<div class="header-title">
+				
+			<b>Последовательности</b>
+		
+
+		</div>
+
+		<div class="text-up">
+					В Python существует три типа последовательностей. Это списки, кортежи и диапазоны.
+
+				
+
+					<br><br><h1>Списки в Python</h1>
+					
+					Список в Python — именно то, чем кажется: коллекция данных, хранящихся последовательно в виде списка в памяти компьютера.<br>
+					<br>В Python можно создать новый список при помощи квадратных скобок, либо метода  <b><i>list()</i></b>,   передав в него элементы списка через запятую:<br><br>	
+				
+
+						<div class="cod">
+									<i> def main():<br>
+								      horror_books = ['Dracula', 'Carmilla', 'The Imago Sequence']<br><br>
+								    print(horror_books)<br><br>
+									if __name__ == '__main__':<br>
+								      main()<br><br>
+									# ['Dracula', 'Carmilla', 'The Imago Sequence']<br></i>
+
+						</div>
+
+
+						<br>В данном примере  <b><i>horror_books</i></b>  представляет собой список строк. Однако списки могут содержать любые объекты, в том числе объекты разных типов.<br><br>
+		
+
+						<div class="cod">
+									<i> def main():<br>
+		    							a_random_list = ['Dracula', 1, 5.7, 'Carmilla']<br><br>
+		    								print(a_random_list)<br><br>
+										if __name__ == '__main__':<br>
+		    								main()<br>
+										# ['Dracula', 1, 5.7, 'Carmilla']</i><br>
+
+		
+						</div>
+
+						<br>Хотя это вполне оправданно, вы можете обнаружить, что чаще всего создаете списки значений одного типа.<br>
+						<br>Списки в Python являются изменяемыми (мутабельными). Это означает, что вы можете изменять список после его создания. Например, можно использовать метод <b><i>pop()</i></b> для удаления последнего значения в списке.<br><br>
+
+
+						<div class="cod">
+									<i> def main():<br>
+									    horror_books = ['Dracula', 'Carmilla', 'The Imago Sequence']<br><br>
+
+										    print(horror_books.pop())<br>
+										    print(horror_books)<br><br>
+
+
+										if __name__ == '__main__':<br>
+										    main()<br>
+
+										# The Imago Sequence<br>
+										# ['Dracula', 'Carmilla']</i><br>
+						</div>
+
+						<br>Как видно, метод <b><i>pop()</i></b> возвращает последнее значение из списка и удаляет его оттуда. В противовес <b><i>pop()</i></b> существует метод <b><i>append()</i></b> для вставки нового элемента в список. Как видно из названия метода, он добавляет новый элемент в конец списка.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+										    horror_books = ['Dracula', 'Carmilla', 'The Imago Sequence']<br><br>
+										    print(horror_books)<br><br>
+										    horror_books.append('The Exorcist')<br><br>
+										    print(horror_books)<br>
+										if __name__ == '__main__':<br>
+									    main()<br>
+									    
+										# ['Dracula', 'Carmilla', 'The Imago Sequence']<br>
+										# ['Dracula', 'Carmilla', 'The Imago Sequence', 'The Exorcist']</i><br>
+						</div>
+
+						<br>Учитывая мутабельность списков, их также можно сортировать.
+
+					<br><br><h1>Кортежи в Python</h1>
+					
+					Списки — не единственный тип последовательности в Python. Ближайшим родственником списка является кортеж.<br>
+					<br>В Python можно создать новый кортеж с использованием круглых скобок либо при помощи метода <b><i>tuple()</i></b>, передав в метод через запятую (без скобок) элементы кортежа.<br><br>				
+
+						<div class="cod">
+									<i> def main():<br>
+		    							horror_books = ('Dracula', 'Carmilla', 'The Imago Sequence')<br><br>
+		   								 print(horror_books)<br><br>
+										if __name__ == '__main__':<br>
+		   								 main()<br>
+										# ('Dracula', 'Carmilla', 'The Imago Sequence')<br></i>
+
+						</div>
+
+					<br>Точно так же, как и в списках, в кортежах вы можете смешивать разные типы данных.<br><br>
+			
+
+						<div class="cod">
+									<i> def main():<br>
+		    								a_random_list = ('Dracula', 1, 5.7, 'Carmilla')<br><br>
+		   								 	print(a_random_list)<br><br>
+										if __name__ == '__main__':<br>
+		   									 main()<br>
+										# ('Dracula', 1, 5.7, 'Carmilla')<br></i>
+
+						</div>
+	
+					<br>Наиболее ярким отличием списка от кортежа является то, что кортеж неизменяем. Так что на этот раз нам не придется ничего удалять и добавлять.
+
+
+
+
+					<br><br><h1>Диапазоны в Python</h1>
+					
+					Последний тип последовательности, с которым мы познакомимся в этом разделе, — это диапазон (<b><i>range</i></b>). Диапазон в Python — это просто диапазон чисел.<br>
+					<br>Вы можете создать диапазон, вызвав метод <b><i>range()</i></b>, который вернет вам диапазон чисел. Этот метод можно вызвать несколькими способами.<br>
+					<br>Наиболее распространенным является передача в качестве параметра одного числа. В этом случае метод будет рассматривать это число как конец диапазона, а 0 — как начало.<br><br>
+
+
+						<div class="cod">
+									<i> def main():<br>
+		   									a_range = range(10)<br><br>
+										    print(a_range)<br><br>
+										    list_a_range = list(a_range)<br><br>
+										    print(list_a_range)<br><br>
+										if __name__ == '__main__':<br>
+											main()<br><br>
+										# range(0, 10)<br>
+										# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br></i>
+
+						</div>
+		
+
+					<br>Вывод диапазона как такового не даст вам много информации. Придется преобразовать диапазон в список или кортеж, вызвав <b><i>list()</i></b> или <b><i>tuple()</i></b>.<br>
+					<br>После преобразования можно вывести весь диапазон в консоль. Обратите внимание, что 10 (число которое мы передали в метод <b><i>range()</i></b>) не входит в диапазон.<br>
+					<br>Второй способ вызова метода заключается в указании начала и конца диапазона.<br><br>
+
+						<div class="cod">
+								<i> def main():<br>
+		   								a_range = range(5, 15)<br><br>
+
+		    							print(a_range)<br>
+
+		    							list_a_range = list(a_range)<br>
+
+		    							print(list_a_range)<br>
+
+		    							tuple_a_range = tuple(a_range)<br>
+
+		    							print(tuple_a_range)<br>
+
+
+									if __name__ == '__main__':<br>
+		   								main()<br><br>
+
+									# range(5, 15)<br>
+									# [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]<br>
+									# (5, 6, 7, 8, 9, 10, 11, 12, 13, 14)<br></i>
+
+						</div>
+				
+					<br>И снова число, которое вы передадите в качестве конечного для диапазона, не будет включено в результат.<br>
+					<br>Третий и последний способ вызова метода — это также определение шага. Например, представьте, что вам нужен диапазон, состоящий из всех нечетных чисел в пределах от 1 до 10.<br><br>
+
+
+						<div class="cod">
+								<i> def main():<br>
+		   								a_range = range(1, 10, 2)<br><br>
+
+		    							print(a_range)<br>
+
+		    							list_a_range = list(a_range)<br>
+
+		    							print(list_a_range)<br>
+
+		    							tuple_a_range = tuple(a_range)<br>
+
+		    							print(tuple_a_range)<br>
+
+
+									if __name__ == '__main__':<br>
+		   								main()<br><br>
+
+									# range(1, 10, 2)<br>
+									# [1, 3, 5, 7, 9]<br>
+									# (1, 3, 5, 7, 9)<br></i>
+						</div>
+
+					<br>Поскольку в данном случае значение шага равно 2, диапазон будет начинаться с 1, но затем пропускать каждое второе число.<br>
+					<br>Возможно, потребуется некоторое время, чтобы понять эту концепцию, но практика с различными аргументами этого метода поможет в этом.<br><br>
+
+		</div>
+		
+		<div class="question">
+			<div class ="question1">
+					<h2>Вопросы по теме:</h2>
+			</div>
+
+			<div class="question2">
+						<ul>
+							<li>1. Как записать диапазон, состоящий из всех нечетных чисел в пределах от 1 до 10?</li>
+		  					  <div class="demo">
+							    <input type="checkbox" id="hd-1" class="hide"/>
+							    <label for="hd-1" >Ответ</label>
+							    <div>
+							      def main():<br>
+   								a_range = range(1, 10, 2)<br><br>
+
+    							print(a_range)<br>
+
+    							list_a_range = list(a_range)<br>
+
+    							print(list_a_range)<br>
+
+    							tuple_a_range = tuple(a_range)<br>
+
+    							print(tuple_a_range)<br>
+
+
+								if __name__ == '__main__':<br>
+   								main()<br><br>
+
+								# range(1, 10, 2)<br>
+								# [1, 3, 5, 7, 9]<br>
+								# (1, 3, 5, 7, 9)<br>
+							    </div>
+							   
+						</ul>
+		      <br/>	
+		  
+						<ul>
+							<li>2. Как создать новый кортеж с использованием круглых скобок либо при помощи метода tuple(), передав в метод через запятую (без скобок) элементы кортежа?</li>
+
+						    <input type="checkbox" id="hd-2" class="hide"/>
+						    <label for="hd-2">Ответ</label>
+						    <div>
+						        def main():<br>
+    							horror_books = ('Dracula', 'Carmilla', 'The Imago Sequence')<br><br>
+   								 print(horror_books)<br><br>
+								if __name__ == '__main__':<br>
+   								 main()<br>
+								# ('Dracula', 'Carmilla', 'The Imago Sequence')<br>
+						    </div>
+							    
+							    
+						</ul>
+		      <br/> 
+						<ul>
+							<li>3. Как использовать метод pop() для удаления последнего значения в списке?</li>
+								
+							<input type="checkbox" id="hd-3" class="hide"/>
+						    <label for="hd-3">Ответ</label>
+						    <div>
+						    	def main():<br>
+							    horror_books = ['Dracula', 'Carmilla', 'The Imago Sequence']<br><br>
+
+								    print(horror_books.pop())<br>
+								    print(horror_books)<br><br>
+
+
+								if __name__ == '__main__':<br>
+								    main()<br>
+
+								# The Imago Sequence<br>
+								# ['Dracula', 'Carmilla'] 
+						    </div>
+							   
+						</ul>
+
+<br/>
+			</div>
+
+	</div>
+
+
+
+
+</div>
+</div>
+</body>
+</html>

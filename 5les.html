@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Операции со строками в Python </title>
+	<link rel="stylesheet" href="5les.css">
+</head>
+<body>
+
+
+<div class='header'>
+	<div class="container">
+
+		<div class="header-title">
+				
+			<b>Операции со строками</b>
+		
+
+		</div>
+
+		<div class="text-up">
+					Текстовые последовательности (такие как строки) имеют некоторые специальные методы, доступные для них.
+
+				
+
+					<br><br><h1>Буквы в строках заглавными</h1>
+					
+					
+					Первый метод, который вы узнаете, называется <b><i>capitalize()</i></b>:<br><br>
+				
+
+						<div class="cod">
+									<i> def main():<br><br>
+										    country_name = 'bangladesh'<br>
+										    print(country_name.capitalize())<br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Bangladesh<br></i>
+
+						</div>
+
+		
+
+						<br>Как видно из приведенного фрагмента кода, метод <b><i>capitalize()</i></b> превращает первую букву слова в заглавную.<br>
+
+						<br>Это просто, но давайте попробуем это сделать на строке, содержащей несколько слов.<br><br>
+		
+
+						<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'the house of silk'<br>
+										    print(book_name.capitalize())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# The house of silk</i><br>
+				</div>
+
+		
+						<br>Хотя метод выполнил свою задачу, есть небольшая проблема. Возможно, вы хотели, чтобы первая буква каждого слова стала заглавной.<br>
+
+						<br>Именно здесь на помощь приходит метод <b><i>title()</i></b>. Он возвращает версию строки, в которой все слова начинаются с заглавных букв.<br><br>
+
+	
+						<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'the house of silk'<br>
+										    print(book_name.title())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# The House Of Silk</i><br>
+
+	
+						</div>
+		
+						<br>Однако проблема все же существует. Возьмем, например, следующую строку с апострофами.<br><br>
+
+
+						<div class="cod">
+									<i>def main():<br><br>
+										    book_name = "alice's adventures in wonderland"<br>
+										    print(book_name.title())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Alice'S Adventures In Wonderland</i><br>
+
+
+						</div>
+
+						<br>Как видно, метод <b><i>title()</i></b> рассматривает следующий за апострофом символ s как отдельное слово и переводит его в верхний регистр.<br>
+						<br>Решить эту проблему можно с помощью вспомогательной функции <b><i>capwords()</i></b>. Эта функция разбивает строку на несколько слов с учетом пробелов между ними, выделяет слова заглавными буквами, объединяет их в строку и возвращает пользователю.<br><br>
+						
+
+						<div class="cod">
+									<i> from string import capwords<br><br>
+										def main():<br><br>
+											    book_name = "alice's adventures in wonderland"<br>
+											    print(capwords(book_name))<br><br>
+										if __name__ == '__main__':<br>
+											    main()<br><br>
+										# Alice's Adventures In Wonderland<br></i>
+
+						</div>
+
+	
+
+						<br>Обратите внимание на <b><i>import</i></b> в верхней части. Функция <b><i>capwords()</i></b> является не внутренним строковым методом, а функцией, которая находится внутри модуля <b><i>string</i></b>.<br>
+						<br>Более подробно о модулях и импорте вы узнаете позже. Пока же просто воспользуйтесь этой функцией. Хотя функция использует пробелы для разделения слов, ее можно изменить.<br><br>
+				
+
+						<div class="cod">
+									<i> from string import capwords<br><br>
+										def main():<br>
+										    address = 'house 42, road 02, wonderland'<br>
+										    print(capwords(address, ', '))<br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# House 42, Road 02, Wonderland<br></i>
+
+						</div>
+						<br>Как видно, в данном случае строка состоит из нескольких частей, разделенных запятой и пробелом.<br>
+						<br>Функция <b><i>capwords()</i></b> может принимать в качестве второго параметра пользовательский разделитель. В качестве разделителя можно передать любую строку.<br>
+						<br>Наконец, существует метод <b><i>istitle()</i></b>, позволяющий проверить, находится ли заданная строка в регистре заголовка.<br><br>
+		
+						<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'hearts in atlantis'<br>
+										    print(f'Is "{book_name}" in title case? {book_name.istitle()}')<br>
+										    print(f'Is "{book_name.title()}" in title case? {book_name.title().istitle()}')<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Is "hearts in atlantis" in title case? False<br>
+										# Is "Hearts In Atlantis" in title case? True<br></i>
+
+						</div>
+	
+						<br>Однако следует помнить, что метод <b><i>istitle()</i></b> не работает со вспомогательной функцией <b><i>capwords()</i></b>.<br>
+
+
+						<br><br><h1>Преобразование строки в нижний или верхний регистр</h1>
+						
+						Помимо приведения к заглавным буквам, вы можете захотеть преобразовать всю строку в верхний или нижний регистр. Для этого вы можете использовать методы Python <b><i>upper()</i></b> и <b><i>lower()</i></b>.<br><br>
+
+
+						<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'moriarty'<br>
+										    print(book_name.upper())<br>
+										    another_book_name = 'DRACULA'<br>
+										    print(another_book_name.lower())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# MORIARTY
+										# dracula<br></i>
+
+						</div>
+	
+
+					<br>Существуют также методы <b><i>isupper()</i></b> и <b><i>islower()</i></b> для проверки того, находится ли данная строка уже в одном из буквенных регистров.<br><br>
+	
+
+						<div class="cod">
+								<i>def main():<br><br>
+									    book_name = 'moriarty'<br>
+									    print(book_name)<br>
+									    print(f'Is {book_name} in upper case? <br>{book_name.isupper()}')<br>
+									    print(f'Is {book_name} in lower case? <br>{book_name.islower()}')<br>
+									    another_book_name = 'DRACULA'<br>
+									    print(another_book_name)<br>
+									    print(f'Is {another_book_name} in upper case? <br>{another_book_name.islower()}')<br>
+									    print(f'Is {another_book_name} in lower case? <br>{another_book_name.isupper()}')<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# moriarty<br>
+									# Is moriarty in upper case? False<br>
+									# Is moriarty in lower case? True<br>
+									# DRACULA<br>
+									# Is DRACULA in upper case? True<br>
+									# Is DRACULA in lower case? False<br></i>
+
+						</div>
+		
+					<br>Есть еще метод <b><i>casefold()</i></b>, который является как бы более агрессивной версией метода <b><i>lower()</i></b>.<br>
+					<br>Использование этого метода идентично использованию метода <b><i>lower()</i></b>.<br><br>
+
+
+					
+
+						<div class="cod">
+								<i> def main():<br>
+									    book_name = 'DRACULA'<br><br>
+									    print(book_name.casefold())<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# dracula<br></i>
+
+						</div>
+
+				
+					<br>Эти три метода хороши, но что, если вы не хотите использовать ни один из них, а просто хотите сменить регистр заданной строки?<br>
+
+					<br>Метод <b><i>swapcase()</i></b> может сделать именно это.<br><br>
+
+
+					
+
+						<div class="cod">
+								<i> def main():<br>
+									    book_name = 'HEARTS IN ATLANTIS'<br><br>
+									    print(book_name.swapcase())<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# hearts in atlantis<br></i>
+
+						</div>
+
+
+					<br><br><h1>Как подсчитать количество вхождений подстроки в строку в Python</h1>
+					
+					
+					Если необходимо узнать количество вхождений подстроки в строку, можно воспользоваться методом <b><i>count()</i></b>.<br><br>
+
+				
+
+						<div class="cod">
+									<i> def main():
+										    paragraph = '''At three in the morning the chief Sussex detective, obeying the urgent call from Sergeant Wilson of<br>
+										    Birlstone, arrived from headquarters in a light dog-cart behind a breathless trotter. By the five-forty train in<br>
+										    the morning he had sent his message to Scotland Yard, and he was at the Birlstone station at twelve o'clock to<br>
+										    welcome us. White Mason was a quiet, comfortable-looking person in a loose tweed suit, with a clean-shaved,<br>
+										    ruddy face, a stoutish body, and powerful bandy legs adorned with gaiters, looking like a small farmer,<br>
+										    a retired gamekeeper, or anything upon earth except a very favourable specimen of the provincial criminal <br>
+										    officer.'''<br><br>
+										    substring = 'morning'<br><br>
+										    print(f'The substring "{substring}" shows up {paragraph.count(substring)} times in the paragraph.')<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# The substring "morning" shows up 2 times in the paragraph.<br></i>
+
+						</div>
+
+						
+					<br>Если вызвать метод <b><i>count()</i></b> не передавая ему ничего, то он вернет количество пустых пробелов в заданной строке.<br>
+
+
+
+					<br><br><h1>Как разделять и соединять строки в Python</h1>
+						
+					В Python легко можно разбить строку на список слов или объединить список слов в строку.<br><br>
+
+				
+
+						<div class="cod">
+									<i> def main():<br>
+										    string = 'Holmes was certainly not a difficult man to live with'<br><br>
+										    word_list = string.split()<br><br>
+										    print(word_list)<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br></i>
+
+						</div>
+					
+						<br>Если вызвать метод <b><i>split()</i></b> без параметров, то он разделит заданную строку на слова, используя пробелы в качестве разделителей.<br>
+
+						<br>Вы можете изменить это, передав пользовательский разделитель, а также задать желаемое количество разбиений.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+										    string = 'Holmes,was,certainly,not,a,difficult,man,to,live,with'<br><br>
+										    word_list = string.split(',', 5)<br><br>
+										    print(word_list)<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult,man,to,live,with']<br></i>
+
+						</div>
+						
+						<br>Как видно из вывода, произошло пять разбиений, а оставшаяся часть строки сохранилась без изменений в качестве шестого элемента списка.<br>
+
+						<br>Метод <b><i>split()</i></b> хорошо подходит для работы с данными, которые были намеренно разграничены. Использование его в естественном тексте с пунктуацией может привести к неожиданным результатам.<br>
+
+						<br>Методом, противоположным <b><i>split()</i></b>, является <b><i>join()</i></b>. Он работает с любыми итерируемыми объектами в Python.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+											word_list = ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br>
+										    string = ''<br><br>
+											string = string.join(word_list)<br><br>
+										    print(string)<br><br>
+											word_list = ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br>
+											join_string = ' '<br><br>
+											string = join_string.join(word_list)<br><br>
+											print(string)<br><br>
+										if __name__ == '__main__':<br>
+											 main()<br><br>
+										# Holmeswascertainlynotadifficultmantolivewith<br>
+										# Holmes was certainly not a difficult man to live with<br></i>
+
+						</div>
+						
+						<br>Метод <b><i>join()</i></b> вызывается у объекта, который мы используем в качестве «склейки». И если <b><i>join_string</i></b> будет равна <b><i>","</i></b>, то в итоговой строке элементы будут перечислены через запятую.<br><br>
+
+		</div>
+
+
+		
+
+				
+		
+		<div class="question">
+			<div class ="question1">
+					<h2>Вопросы по теме:</h2>
+			</div>
+
+			<div class="question2">
+						<ul>
+							<li>1. Как превратить первую букву слова в заглавную?</li>
+		  					  <div class="demo">
+							    <input type="checkbox" id="hd-1" class="hide"/>
+							    <label for="hd-1" >Ответ</label>
+							    <div>
+							      def main():<br><br>
+										    country_name = 'bangladesh'<br>
+										    print(country_name.capitalize())<br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Bangladesh<br>
+							    </div>
+							   
+						</ul>
+		      <br/>	
+		  
+						<ul>
+							<li>2. Как превратить каждую первую букву слова в заглавную?</li>
+
+						    <input type="checkbox" id="hd-2" class="hide"/>
+						    <label for="hd-2">Ответ</label>
+						    <div>
+						        def main():<br><br>
+										    book_name = "alice's adventures in wonderland"<br>
+										    print(book_name.title())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Alice'S Adventures In Wonderland
+						    </div>
+							    
+							    
+						</ul>
+		      <br/> 
+						<ul>
+							<li>3. Как разбить строку на список слов или объединить список слов в строку?</li>
+								
+							<input type="checkbox" id="hd-3" class="hide"/>
+						    <label for="hd-3">Ответ</label>
+						    <div>
+						    	def main():<br>
+										    string = 'Holmes was certainly not a difficult man to live with'<br><br>
+										    word_list = string.split()<br><br>
+										    print(word_list)<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']
+						    </div>
+							   
+						</ul>
+
+<br/>
+			</div>
+
+	</div>
+
+
+
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Модуль random в Python</title>
+	<link rel="stylesheet" href="7les.css">
+</head>
+<body>
+
+
+<div class='header'>
+	<div class="container">
+
+		
+
+		<div class="header-title">
+				
+		<b>Модуль random</b>
+
+		</div>
+
+		<div class="text-up">
+			Модуль <b><i>random</i></b> предоставляет функции для генерации случайных чисел, букв, случайного выбора элементов последовательности.<br><br>
+
+			<h1>random.betavariate(alpha, beta)</h1>
+				бета-распределение. <b><i>alpha > 0, beta > 0</i></b>. Возвращает от 0 до 1.<br><br>
+
+
+			<h1>random.choice(sequence)</h1>
+				возвращает случайный элемент непустой последовательности<br><br>
+
+
+			<h1>random.expovariate(lambd)</h1>
+				экспоненциальное распределение. <b><i>lambd</i></b> равен 1/среднее желаемое. <b><i>Lambd</i></b> должен быть отличным от нуля. Возвращаемые значения от 0 до плюс бесконечности, если <b><i>lambd</i></b> положительно, и от минус бесконечности до 0, если <b><i>lambd</i></b> отрицательный.<br><br>
+
+
+			<h1>random.gammavariate(alpha, beta)</h1>
+				гамма-распределение. Условия на параметры <b><i>alpha > 0 и beta > 0</i></b>.<br><br>
+
+
+			<h1>random.gauss(значение, стандартное отклонение)</h1>
+				распределение Гаусса.<br><br>
+
+
+			<h1>random.getrandbits(N)</h1>
+				возвращает <b><i>N</i></b> случайных бит.<br><br>
+
+
+			<h1>random.getstate()</h1>
+				внутреннее состояние генератора.<br><br>
+
+
+			<h1>random.lognormvariate(mu, sigma)</h1>
+				логарифм нормального распределения. Если взять натуральный логарифм этого распределения, то вы получите нормальное распределение со средним <b><i>mu</i></b> и стандартным отклонением <b><i>sigma. mu</i></b> может иметь любое значение, и <b><i>sigma</i></b> должна быть больше нуля.<br><br>
+
+
+			<h1>random.normalvariate (mu, sigma)</h1>
+				нормальное распределение. <b><i>mu</i></b> — среднее значение, <b><i>sigma</i></b> — стандартное отклонение.<br><br>
+
+
+			<h1>random.paretovariate(alpha)</h1>
+				распределение Парето.<br><br>
+
+
+			<h1>random.randint(A, B)</h1>
+				случайное целое число <b><i>N, A ≤ N ≤ B</i></b>.<br><br>
+
+
+			<h1>random.random()</h1>
+				случайное число от 0 до 1.<br><br>
+
+
+			<h1>random.randrange(start, stop, step)</h1>
+				возвращает случайно выбранное число из последовательности.<br><br>
+
+
+			<h1>random.sample(population, k)</h1>
+				список длиной <b><i>k</i></b> из последовательности <b><i>population.f</i></b><br><br>
+
+
+			<h1>random.seed(X, version=2)</h1>
+				инициализация генератора случайных чисел. Если X не указан, используется системное время.<br><br>
+
+
+			<h1>random.setstate(state)</h1>
+				восстанавливает внутреннее состояние генератора. Параметр <b><i>state</i></b> должен быть получен функцией <b><i>getstate()</i></b>.<br><br>
+
+
+			<h1>random.shuffle(sequence, rand)</h1>
+				перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов.<br><br>
+
+
+			<h1>random.triangular(low, high, mode)</h1>
+				случайное число с плавающей точкой, <b><i>low ≤ N ≤ high</i></b>. Mode — распределение.<br><br>
+
+
+			<h1>random.uniform(A, B)</h1>
+				случайное число с плавающей точкой, <b><i>A ≤ N ≤ B (или B ≤ N ≤ A)</i></b>.<br><br>
+
+
+			<h1>random.vonmisesvariate(mu, kappa)</h1>
+				<b><i>mu</i></b> — средний угол, выраженный в радианах от 0 до 2π, и kappa — параметр концентрации, который должен быть больше или равен нулю. Если каппа равна нулю, это распределение сводится к случайному углу в диапазоне от 0 до 2π.<br><br>
+
+
+			<h1>random.weibullvariate((alpha, beta)</h1>
+				распределение Вейбулла.<br><br>
+
+		</div>
+
+
+
+		
+		<div class="question">
+			<div class ="question1">
+					<h2>Вопросы по теме:</h2>
+			</div>
+
+			<div class="question2">
+						<ul>
+							<li>1. Что делает random.choice(sequence) ?</li>
+		  					  <div class="demo">
+							    <input type="checkbox" id="hd-1" class="hide"/>
+							    <label for="hd-1" >Ответ</label>
+							    <div>
+							        Возвращает случайный элемент непустой последовательности.
+							    </div>
+							   
+						</ul>
+		      <br/>	
+		  
+						<ul>
+							<li>2.Что делает random.seed(X, version=2) ?</li>
+
+						    <input type="checkbox" id="hd-2" class="hide"/>
+						    <label for="hd-2">Ответ</label>
+						    <div>
+						        Инициализацию генератора случайных чисел. Если X не указан, используется системное время.
+						    </div>
+							    
+							    
+						</ul>
+		      <br/> 
+						<ul>
+							<li>3. Что такое "mu"?</li>
+							<input type="checkbox" id="hd-3" class="hide"/>
+						    <label for="hd-3">Ответ</label>
+						    <div>
+						      mu — средний угол, выраженный в радианах от 0 до 2π.
+						    </div>
+							   
+						</ul>
+
+<br/>
+			</div>
+
+	</div>
+
+
+
+</div>
+</div>
+
+</body>
+</html>

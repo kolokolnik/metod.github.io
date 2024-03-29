@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Условные операторы в Python </title>
+	<link rel="stylesheet" href="6les.css">
+</head>
+<body>
+
+
+<div class='header'>
+	<div class="container">
+
+		<div class="header-title">
+				
+			<b>Условные операторы</b>
+		
+
+		</div>
+
+		<div class="text-up">
+					В Python или в любом другом языке программирования вы можете принимать решения на основе условий.<br><br>
+
+					Надеюсь, вы помните логический тип данных из предыдущего раздела — тот, который может содержать только значения True или False.<br><br>
+
+					В Python вы можете использовать логический тип данных с оператором <b><i>if</i></b> (условным оператором), чтобы выполнять действия согласно условиям.<br><br>
+
+
+						<div class="cod">
+									<i> def main():<br>
+										    number = int(input('what number would you like to check?\n- '))<br><br>
+										    if number % 2 == 0:<br>
+										        print(f"{number} is even.")<br>
+										    else:<br>
+										        print(f"{number} is odd.")<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# what number would you like to check?<br>
+										# - 10<br>
+										# 10 is even.<br></i>
+
+						</div>
+
+
+						<br>Начните с написания <b><i>if</i></b>, за которым следует условие и двоеточие. Под условием я понимаю утверждение, которое оценивается как булево значение (True или False).<br><br>
+
+						Вы с самого начала использовали оператор <b><i>==</i></b> и уже знаете, что он проверяет, равно ли значение в левой его части тому, что находится в правой.<br><br>
+
+						Так, если данное число делится на 2 и остаток равен 0, то это четное число. В противном случае оно будет нечетным.<br><br>
+
+						Для выбора между двумя различными вариантами можно использовать операторы <b><i>if</i></b> и <b><i>else</i></b>. Если же необходимо выбрать несколько вариантов, то можно использовать еще и оператор <b><i>elif</i></b>, который будет проверять еще одно условие, если условие <b><i>if</i></b> было провалено.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+											year = int(input('which year would you like to check?\n- '))<br><br>
+											if year % 400 == 0 and year % 100 == 0:<br>
+											    print(f"{year} is leap year.")<br>
+											elif year % 4 == 0 and year % 100 != 0:<br>
+											    print(f"{year} is leap year.")<br>
+											else:<br>
+											    print(f"{year} is not leap year.")<br><br>
+										if __name__ == '__main__':<br>
+										main()<br><br>
+										# which year would you like to check?<br>
+										# - 2004<br>
+										# 2004 is leap year.</i><br><br>
+
+	
+						</div>
+	
+
+						<br>Оператор <b><i>elif</i></b> располагается после оператора <b><i>if</i></b> и перед оператором <b><i>else</i></b>.<br><br>
+
+							Считайте, что это похоже на <b><i>«else if»</i></b>, так что если оператор <b><i>if</i></b> не работает, то его место займет <b><i>elif</i></b>. Вы указываете условие в нем точно так же, как и в обычном <b><i>if-операторе</i></b>.<br><br>
+
+							Еще одним новым моментом в этом примере является оператор  <b><i>and</i></b>. Это один из логических операторов в Python.<br><br>
+
+							Если выражения с обеих сторон оператора <b><i>and</i></b> оцениваются как True, то все выражение оценивается как True. Все просто.<br><br>
+
+							Не волнуйтесь, если в данный момент вы не до конца понимаете, что такое оператор <b><i>and</i></b>. О нем и его братьях и сестрах вы узнаете в следующем разделе.<br><br>
+
+							Еще один момент: условные операторы являются обычными операторами, поэтому внутри них можно делать вычисления и преобразования.<br><br>
+					
+
+						<div class="cod">
+									<i> def main():<br>
+										    number = int(input('what number would you like to check?\n- '))<br><br>
+										    is_not_prime = False<br><br>
+										    if number == 1:<br>
+										        print(f"{number} is not a prime number.")<br>
+										    elif number > 1:<br>
+										        for n in range(2, number):<br>
+										            if (number % n) == 0:<br>
+										                is_not_prime = True<br>
+										                break<br><br>
+										        if is_not_prime:<br>
+										            print(f"{number} is not a prime number.")<br>
+										        else:<br>
+										            print(f"{number} is a prime number.")<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# what number would you like to check?<br>
+										# - 10<br>
+										# 10 is not a prime number.<br></i>
+
+						</div>
+
+		
+
+						<br>Этот пример немного сложнее, чем те, которые вы видели до сих пор. Поэтому позвольте мне рассказать о нем подробнее.<br><br>
+						Программа проверяет, является ли заданное число простым.<br><br>
+						Сначала вы берете у пользователя число. Чтобы число было простым, оно должно быть кратным только 1 и самому себе. Поскольку 1 делится только на 1, оно не является простым.<br><br>
+						Если данное число больше 1, то его нужно разделить на все числа от 2 до данного числа.<br><br>
+						Если число делится на любое из этих чисел, то вы переводите переменную <b><i>is_not_prime</i></b> в True и завершаете цикл.<br><br>
+						Оператор <b><i>break</i></b> просто немедленно выходит из цикла. Существует также оператор <b><i>continue</i></b>, который вместо выхода из цикла пропускает текущую итерацию.<br><br>
+						Наконец, если переменная <b><i>is_not_prime</i></b> равна True, то число не является простым.<br><br>
+						Таким образом, как вы видите, можно не только помещать циклы внутри условного оператора, но и помещать условные операторы внутри цикла.<br><br>
+						Последний пример, это оператор <b><i>for...else</i></b>. Как видно из приведенного примера, у вас есть  оператор <b><i>for</i></b>, за которым следует оператор <b><i>else</i></b>.<br><br>
+				
+
+						<div class="cod">
+									<i> def main():<br>
+										    number = int(input('what number would you like to check?\n- '))<br><br>
+										    if number == 1:<br>
+										        print(f"{number} is not a prime number.")<br>
+										    elif number > 1:<br>
+										        for n in range(2, number):<br>
+										            if (number % n) == 0:<br>
+										                print(f"{number} is not a prime number.")<br>
+										                break<br>
+										        else:<br>
+										            print(f"{number} is a prime number.")<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# what number would you like to check?<br>
+										# - 5<br>
+										# 5 is a prime number.<br></i>
+
+						</div>
+				
+						<br>Если вы поместите оператор <b><i>else</i></b> на один уровень с оператором <b><i>for</i></b>, то Python выполнит все, что вы поместите внутри блока <b><i>else</i></b>, как только цикл завершится.<br><br>
+		
+					<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'hearts in atlantis'<br>
+										    print(f'Is "{book_name}" in title case? {book_name.istitle()}')<br>
+										    print(f'Is "{book_name.title()}" in title case? {book_name.title().istitle()}')<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# Is "hearts in atlantis" in title case? False<br>
+										# Is "Hearts In Atlantis" in title case? True<br></i>
+
+						</div>
+		
+						<br>Однако следует помнить, что метод <b><i>istitle()</i></b> не работает со вспомогательной функцией <b><i>capwords()</i></b>.
+	
+						<br><br><h1>Преобразование строки в нижний или верхний регистр</h1>
+						
+						Помимо приведения к заглавным буквам, вы можете захотеть преобразовать всю строку в верхний или нижний регистр. Для этого вы можете использовать методы Python <b><i>upper()</i></b> и <b><i>lower()</i></b>.<br><br>
+
+		
+						<div class="cod">
+									<i> def main():<br><br>
+										    book_name = 'moriarty'<br>
+										    print(book_name.upper())<br>
+										    another_book_name = 'DRACULA'<br>
+										    print(another_book_name.lower())<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# MORIARTY
+										# dracula<br></i>
+
+						</div>
+		
+
+					<br>Существуют также методы <b><i>isupper()</i></b> и <b><i>islower()</i></b> для проверки того, находится ли данная строка уже в одном из буквенных регистров.<br><br>
+		
+
+						<div class="cod">
+								<i>def main():<br><br>
+									    book_name = 'moriarty'<br>
+									    print(book_name)<br>
+									    print(f'Is {book_name} in upper case? <br>{book_name.isupper()}')<br>
+									    print(f'Is {book_name} in lower case? <br>{book_name.islower()}')<br>
+									    another_book_name = 'DRACULA'<br>
+									    print(another_book_name)<br>
+									    print(f'Is {another_book_name} in upper case? <br>{another_book_name.islower()}')<br>
+									    print(f'Is {another_book_name} in lower case? <br>{another_book_name.isupper()}')<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# moriarty<br>
+									# Is moriarty in upper case? False<br>
+									# Is moriarty in lower case? True<br>
+									# DRACULA<br>
+									# Is DRACULA in upper case? True<br>
+									# Is DRACULA in lower case? False<br></i>
+
+						</div>
+		
+					<br>Есть еще метод <b><i>casefold()</i></b>, который является как бы более агрессивной версией метода <b><i>lower()</i></b>.<br>Использование этого метода идентично использованию метода <b><i>lower()</i></b>.<br><br>
+
+
+				
+
+						<div class="cod">
+								<i> def main():<br>
+									    book_name = 'DRACULA'<br><br>
+									    print(book_name.casefold())<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# dracula<br></i>
+
+						</div>
+
+					
+					<br>Эти три метода хороши, но что, если вы не хотите использовать ни один из них, а просто хотите сменить регистр заданной строки?<br><br>
+
+					Метод <b><i>swapcase()</i></b> может сделать именно это.<br><br>
+
+
+						<div class="cod">
+								<i> def main():<br>
+									    book_name = 'HEARTS IN ATLANTIS'<br><br>
+									    print(book_name.swapcase())<br><br>
+									if __name__ == '__main__':<br>
+									    main()<br><br>
+									# hearts in atlantis<br></i>
+
+						</div>
+
+
+					<br><br><h1>Как подсчитать количество вхождений подстроки в строку в Python</h1>
+					
+					
+					Если необходимо узнать количество вхождений подстроки в строку, можно воспользоваться методом <b><i>count()</i></b>.<br><br>
+	
+				
+
+						<div class="cod">
+									<i> def main():
+										    paragraph = '''At three in the morning the chief Sussex detective, obeying the urgent call from Sergeant Wilson of<br>
+										    Birlstone, arrived from headquarters in a light dog-cart behind a breathless trotter. By the five-forty train in<br>
+										    the morning he had sent his message to Scotland Yard, and he was at the Birlstone station at twelve o'clock to<br>
+										    welcome us. White Mason was a quiet, comfortable-looking person in a loose tweed suit, with a clean-shaved,<br>
+										    ruddy face, a stoutish body, and powerful bandy legs adorned with gaiters, looking like a small farmer,<br>
+										    a retired gamekeeper, or anything upon earth except a very favourable specimen of the provincial criminal <br>
+										    officer.'''<br><br>
+										    substring = 'morning'<br><br>
+										    print(f'The substring "{substring}" shows up {paragraph.count(substring)} times in the paragraph.')<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# The substring "morning" shows up 2 times in the paragraph.<br></i>
+
+						</div>
+
+				
+					<br>Если вызвать метод <b><i>count()</i></b> не передавая ему ничего, то он вернет количество пустых пробелов в заданной строке.<br>
+
+
+
+					<br><br><h1>Как разделять и соединять строки в Python</h1>
+						
+					В Python легко можно разбить строку на список слов или объединить список слов в строку.<br><br>
+	
+				
+
+						<div class="cod">
+									<i> def main():<br>
+										    string = 'Holmes was certainly not a difficult man to live with'<br><br>
+										    word_list = string.split()<br><br>
+										    print(word_list)<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br></i>
+
+						</div>
+					
+						<br>Если вызвать метод <b><i>split()</i></b> без параметров, то он разделит заданную строку на слова, используя пробелы в качестве разделителей.<br><br>
+
+						Вы можете изменить это, передав пользовательский разделитель, а также задать желаемое количество разбиений.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+										    string = 'Holmes,was,certainly,not,a,difficult,man,to,live,with'<br><br>
+										    word_list = string.split(',', 5)<br><br>
+										    print(word_list)<br><br>
+										if __name__ == '__main__':<br>
+										    main()<br><br>
+										# ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult,man,to,live,with']<br></i>
+
+						</div>
+						
+						<br>Как видно из вывода, произошло пять разбиений, а оставшаяся часть строки сохранилась без изменений в качестве шестого элемента списка.<br><br>
+
+						Метод <b><i>split()</i></b> хорошо подходит для работы с данными, которые были намеренно разграничены. Использование его в естественном тексте с пунктуацией может привести к неожиданным результатам.<br><br>
+
+						Методом, противоположным <b><i>split()</i></b>, является <b><i>join()</i></b>. Он работает с любыми итерируемыми объектами в Python.<br><br>
+
+						<div class="cod">
+									<i> def main():<br>
+											word_list = ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br>
+										    string = ''<br><br>
+											string = string.join(word_list)<br><br>
+										    print(string)<br><br>
+											word_list = ['Holmes', 'was', 'certainly', 'not', 'a', 'difficult', 'man', 'to', 'live', 'with']<br>
+											join_string = ' '<br><br>
+											string = join_string.join(word_list)<br><br>
+											print(string)<br><br>
+										if __name__ == '__main__':<br>
+											 main()<br><br>
+										# Holmeswascertainlynotadifficultmantolivewith<br>
+										# Holmes was certainly not a difficult man to live with<br></i>
+
+						</div>
+						
+						<br>Метод <b><i>join()</i></b> вызывается у объекта, который мы используем в качестве «склейки». И если <b><i>join_string</i></b> будет равна <b><i>","</i></b>, то в итоговой строке элементы будут перечислены через запятую.<br><br>
+
+		</div>
+
+
+				
+		
+		<div class="question">
+			<div class ="question1">
+					<h2>Вопросы по теме:</h2>
+			</div>
+
+			<div class="question2">
+						<ul>
+							<li>1. Напишите число которое делится на 2 и остаток равен 0?</li>
+		  					  <div class="demo">
+							    <input type="checkbox" id="hd-1" class="hide"/>
+							    <label for="hd-1" >Ответ</label>
+							    <div>
+							      def main():def main():<br>
+											year = int(input('which year would you like to check?\n- '))<br><br>
+											if year % 400 == 0 and year % 100 == 0:<br>
+											    print(f"{year} is leap year.")<br>
+											elif year % 4 == 0 and year % 100 != 0:<br>
+											    print(f"{year} is leap year.")<br>
+											else:<br>
+											    print(f"{year} is not leap year.")<br><br>
+										if __name__ == '__main__':<br>
+										main()<br><br>
+										# which year would you like to check?<br>
+										# - 2004<br>
+										# 2004 is leap year.
+							    </div>
+							   
+						</ul>
+		  	
+		  
+						<ul>
+							<li>2.Что будет если поместить оператор <i>else</i> на один уровень с оператором <i>for</i>?</li>
+
+						    <input type="checkbox" id="hd-2" class="hide"/>
+						    <label for="hd-2">Ответ</label>
+						    <div>
+						        Python выполнит все, что вы поместите внутри блока <i>else</i>, как только цикл завершится.
+						    </div>
+							    
+							    
+						</ul>
+		       
+						<ul>
+							<li>3. Что может сделать Метод swapcase()?</li>
+								
+							<input type="checkbox" id="hd-3" class="hide"/>
+						    <label for="hd-3">Ответ</label>
+						    <div>
+						    	Сменить регистр заданной строки.
+						    </div>
+							   
+						</ul>
+
+<br/>
+			</div>
+
+	</div>
+
+
+
+
+</div>
+</div>
+</body>
+</html>
